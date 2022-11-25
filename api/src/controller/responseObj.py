@@ -24,3 +24,11 @@ class responseObject:
 
         self.failed["status"] = 400
         return self.failed, 400
+
+    def deleteMethodResponse(self, state=bool):
+        if state is True:
+            self.success["status"] = 201
+            return self.success, 201
+
+        self.failed["status"] = 400
+        return self.failed, 400

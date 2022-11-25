@@ -112,22 +112,44 @@ class daoProductObject(object):
         return responseObject().postMethodResponse(state=False)
 
     def delete(self, payload):
-        pass
+        print(payload, type(payload))
 
-    # def modify(self, payload):
-    #     if type(payload) is not dict or not len(payload["data"]):
-    #         return responseObject().return_post_http_status_message()
-    #
-    #     try:
-    #         g.dbSession.query(productDBModel).filter(jobModel.id == int(self.updateData[ListofData]["id"])).update(
-    #             {'done': int(self.updateData[ListofData]["done"])}
-    #         )
-    #         g.dbSession.commit()
-    #         return Return_object().return_patch_http_status_message(Type=True)
-    #     except:
-    #         g.dbSession.rollback()
-    #
-    #     return Return_object().return_patch_http_status_message(Type=False)
+        if self.ProductCount() == 0:
+            return responseObject().deleteMethodResponse(state=False)
+
+        try:
+            g.dbSession.query(productDBModel).filter(productDBModel.ProductID == payload).delete()
+            g.dbSession.commit()
+            return responseObject().deleteMethodResponse(state=True)
+        except:
+            g.dbSession.rollback()
+
+        return responseObject().deleteMethodResponse(state=False)
+
+    @staticmethod
+    def modify(payload):
+        if type(payload) is not dict:
+            return responseObject().patchMethodResponse(state=False)
+
+        try:
+            g.dbSession.query(productDBModel).filter(productDBModel.ProductID == payload['ProductID']).update(
+                {
+                    "ProductName": payload['ProductName'],
+                    "ProductCategory": payload['ProductCategory'],
+                    "ProductID": payload['ProductID'],
+                    "ProductOwnerID": payload['ProductOwnerID'],
+                    "ProductRemaining": payload['ProductRemaining'],
+                    "ProductCost": payload['ProductCost'],
+                    "ProductInformation": payload['ProductInformation'],
+                    "ProductImage": payload['ProductImage']
+                }
+            )
+            g.dbSession.commit()
+            return responseObject().patchMethodResponse(state=True)
+        except:
+            g.dbSession.rollback()
+
+        return responseObject().patchMethodResponse(state=False)
 
 
 handler = daoProductObject()
@@ -182,7 +204,7 @@ class epRegisterRequestHandler(Resource):
         return handler.register(ns.payload)
 
 
-@ns.route('/delete/<int:productID>')
+@ns.route('/delete/<string:productID>')
 @ns.response(404, 'Not Found')
 @ns.param('productID', 'productID search in product information')
 class epModifyRequestHandler(Resource):
@@ -190,17 +212,18 @@ class epModifyRequestHandler(Resource):
 
     @ns.doc('Delete Product')
     @ns.marshal_with(Response)
-    def delete(self):
+    def delete(self, productID):
         """Fetch a given resource"""
         return handler.delete(productID)
 
-# @ns.route('/modify')
-# class epModifyRequestHandler(Resource):
-#     """Request handler for modify"""
-#
-#     @ns.doc('Modify Product')
-#     @ns.expect()
-#     @ns.marshal_with()
-#     def patch(self):
-#         """Fetch a given resource"""
-#         return handler.update(ns.payload)
+
+@ns.route('/modify')
+class epModifyRequestHandler(Resource):
+    """Request handler for modify"""
+
+    @ns.doc('Modify Product')
+    @ns.expect(GetCartModel)
+    @ns.marshal_with(Response)
+    def patch(self):
+        """Fetch a given resource"""
+        return handler.modify(ns.payload)

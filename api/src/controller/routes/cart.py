@@ -67,6 +67,7 @@ class daoCartObject(object):
         try:
             g.dbSession.add(cartDBModel(
                 CartProductName=payload["CartProductName"],
+                CartID=payload["CartID"],
                 CartProductCategory=payload["CartProductCategory"],
                 CartProductID=payload["CartProductID"],
                 CartProductRemaining=payload["CartProductRemaining"],
@@ -86,38 +87,43 @@ class daoCartObject(object):
 
         return responseObject().postMethodResponse(state=False)
 
-    def CartRemove(self):
-        pass
+    def CartRemove(self, payload):
+        if self.ProductCount() == 0:
+            return responseObject().deleteMethodResponse(state=False)
 
-    def CartBuy(self):
-        pass
+        try:
+            g.dbSession.query(cartDBModel).filter(cartDBModel.CartID == payload).delete()
+            g.dbSession.commit()
+            return responseObject().deleteMethodResponse(state=True)
+        except:
+            g.dbSession.rollback()
+
+        return responseObject().deleteMethodResponse(state=False)
+
+    def CartBuy(self, payload):
+        if self.CartCount() == 0:
+            return responseObject().patchMethodResponse(state=False)
+
+        try:
+            g.dbSession.query(cartDBModel).filter(cartDBModel.CartID == payload).update(
+                {'CartBuyChecked': 1}
+            )
+            g.dbSession.commit()
+            return responseObject().patchMethodResponse(state=True)
+        except:
+            g.dbSession.rollback()
+        return responseObject().patchMethodResponse(state=False)
 
     def CartProductsList(self, payload):
-        if self.CartCount() == 0 or type(payload) is not dict or not len(payload["CartEmail"]) or not len(payload["CartPWD"]):
-            return responseObject().postMethodResponse(state=False)
+        if self.CartCount() == 0:
+            ns.abort(404, f"Not Found")
 
-        self.selectData = g.dbSession.query(cartDBModel).filter(cartDBModel.CartEmail == payload["CartEmail"],
-                                                                cartDBModel.CartPWD == payload["CartPWD"]).first()
+        self.selectData = g.dbSession.query(cartDBModel).filter(cartDBModel.ConsumerIdentifyNumber == payload, cartModel.CartBuyChecked == 0).all()
 
         if not self.selectData:
-            return responseObject().postMethodResponse(state=False)
+            ns.abort(404, f"Not Found")
 
-        return responseObject().postMethodResponse(state=True)
-
-    # def modify(self, payload):
-    #     if type(payload) is not dict or not len(payload["data"]):
-    #         return responseObject().return_post_http_status_message()
-    #
-    #     try:
-    #         g.dbSession.query(cartDBModel).filter(jobModel.id == int(self.updateData[ListofData]["id"])).update(
-    #             {'done': int(self.updateData[ListofData]["done"])}
-    #         )
-    #         g.dbSession.commit()
-    #         return Return_object().return_patch_http_status_message(Type=True)
-    #     except:
-    #         g.dbSession.rollback()
-    #
-    #     return Return_object().return_patch_http_status_message(Type=False)
+        return self.selectData
 
 
 handler = daoCartObject()
@@ -127,58 +133,48 @@ handler = daoCartObject()
 class epRegisterRequestHandler(Resource):
     """Request handler for Cart Registered"""
 
-    @ns.doc('Get Cart')
-    @ns.expect()
-    @ns.marshal_with()
+    @ns.doc('Register Cart')
+    @ns.expect(cartModel)
+    @ns.marshal_with(Response)
     def post(self):
         """Fetch a given resource"""
         return handler.CartRegister(ns.payload)
 
 
-@ns.route('/remove')
+@ns.route('/remove/<string:cartID>')
+@ns.response(404, 'Not Found')
+@ns.param('cartID', 'Cart Identity Number')
 class epRemoveRequestHandler(Resource):
     """Request handler for Cart Removed"""
 
-    @ns.doc('Get Cart')
-    @ns.expect()
-    @ns.marshal_with()
-    def delete(self):
+    @ns.doc('Remove Cart')
+    @ns.marshal_with(Response)
+    def delete(self, cartID):
         """Fetch a given resource"""
-        return handler.CartRemove(ns.payload)
+        return handler.CartRemove(cartID)
 
 
-@ns.route('/products/<string:id>')
+@ns.route('/products/<string:cartID>')
 @ns.response(404, 'Not Found')
-@ns.param('id', 'Cart Identity Number')
+@ns.param('cartID', 'Cart Identity Number')
 class epProductsRequestHandler(Resource):
     """Request handler for Cart List"""
 
-    @ns.doc('Create Cart')
-    @ns.expect()
-    @ns.marshal_with()
-    def get(self):
+    @ns.doc('Get Cart')
+    @ns.marshal_list_with(cartModel)
+    def get(self, cartID):
         """Fetch a given resource"""
-        return handler.CartProductsList(ns.payload)
+        return handler.CartProductsList(cartID)
 
 
-@ns.route('/buy')
+@ns.route('/buy/<string:cartID>')
+@ns.response(404, 'Not Found')
+@ns.param('cartID', 'Cart Identity Number')
 class epBuyRequestHandler(Resource):
     """Request handler for Cart Bought"""
 
-    @ns.doc('Create Cart')
-    @ns.expect()
-    @ns.marshal_with()
-    def post(self):
+    @ns.doc('Buy Product')
+    @ns.marshal_with(Response)
+    def post(self, cartID):
         """Fetch a given resource"""
-        return handler.CartBuy(ns.payload)
-
-# @ns.route('/modify')
-# class epModifyRequestHandler(Resource):
-#     """Request handler for modify"""
-#
-#     @ns.doc('Modify Cart')
-#     @ns.expect()
-#     @ns.marshal_with()
-#     def patch(self):
-#         """Fetch a given resource"""
-#         return handler.update(ns.payload)
+        return handler.CartBuy(cartID)
