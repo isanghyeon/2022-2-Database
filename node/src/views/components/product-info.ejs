@@ -5,13 +5,13 @@
         <div class="card position-relative h-100 card-listing hover-trigger">
             <div class="card-header">
                 <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-1.jpg" alt="">
+                    <img id="image" class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-1.jpg" alt="">
                 </picture>
             </div>
             <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Full Zip 후드</a>
-                <p class="fw-bolder m-0 mt-2">$1129.99</p>
+                <a id=name class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                   href="/product">Name</a>
+                <p id="price" class="fw-bolder m-0 mt-2">Price</p>
             </div>
         </div>
         <!--/ Card Product-->
@@ -179,5 +179,7 @@
         </div>
         <!--/ Card Product-->
     </div>
+
+    <script src="/javascripts/senddata.js"></script>
 </div>
 <!-- / Products-->
