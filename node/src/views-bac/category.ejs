@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+    <!-- Page Meta Tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="stylesheets/libs.bundle.css"/>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="stylesheets/theme.bundle.css"/>
+
+    <!-- Google Fnts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fix for custom scrollbar if JS is disabled-->
+    <noscript>
+        <style>
+            /**
+            * Reinstate scrolling for non-JS clients
+            */
+            .simplebar-content-wrapper {
+                overflow: auto;
+            }
+        </style>
+    </noscript>
+
+    <!-- Page Title -->
+    <title>Alpine | Bootstrap 5 Ecommerce HTML Template</title>
+
+</head>
+<body class="">
+
+<!-- Navbar -->
+<!-- Navbar -->
+<nav
+        class="navbar navbar-expand-lg navbar-light bg-white border-bottom mx-0 p-0 flex-column  border-0">
+    <div class="w-100 pb-lg-0 pt-lg-0 pt-4 pb-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
+
+            <!-- Logo-->
+            <a class="navbar-brand fw-bold fs-3 m-0 p-0 flex-shrink-0" href="/">
+                <!-- Start of Logo-->
+                <div class="d-flex align-items-center">
+                    <div class="f-w-6 d-flex align-items-center me-2 lh-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 194">
+                            <path fill="currentColor" class="svg-logo-white"
+                                  d="M47.45,60l1.36,27.58,53.41-51.66,50.87,50,3.84-26L194,100.65V31.94A31.94,31.94,0,0,0,162.06,0H31.94A31.94,31.94,0,0,0,0,31.94v82.57Z"/>
+                            <path fill="currentColor" class="svg-logo-dark"
+                                  d="M178.8,113.19l1,34.41L116.3,85.92l-14.12,15.9L88.07,85.92,24.58,147.53l.93-34.41L0,134.86v27.2A31.94,31.94,0,0,0,31.94,194H162.06A31.94,31.94,0,0,0,194,162.06V125.83Z"/>
+                        </svg>
+                    </div>
+                    <span class="fs-5">DBShop</span>
+                </div>
+                <!-- / Logo-->
+
+            </a>
+            <!-- / Logo-->
+
+            <!-- Main Navigation-->
+            <%- include('components/header-main.ejs') %>
+            <!-- / Main Navigation-->
+
+            <!-- Navbar Icons-->
+            <%- include('components/header-layout.ejs') %>
+            <!-- Navbar Icons-->
+
+        </div>
+    </div>
+</nav>
+<!-- / Navbar-->
+<!-- / Navbar-->
+
+<!-- Main Section-->
+<section class="mt-0 ">
+
+    <!-- Category Top Banner -->
+    <div class="py-6 bg-img-cover bg-dark bg-overlay-gradient-dark position-relative overflow-hidden mb-4 bg-pos-center-center"
+         style="background-image: url(images/banners/banner-1.jpg);">
+        <div class="container position-relative z-index-20" data-aos="fade-right" data-aos-delay="300">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item breadcrumb-light"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item breadcrumb-light"><a href="#">Activities</a></li>
+                    <li class="breadcrumb-item active breadcrumb-light" aria-current="page">Clothing</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold display-6 mb-4 text-white">Latest Arrivals (121)</h1>
+            <div class="col-12 col-md-6">
+                <p class="lead text-white mb-0">
+                    Move, stretch, jump and hike in our latest waterproof arrivals. We've got you covered for your
+                    hike or climbing sessions, from Gortex jackets to lightweight waterproof pants. Discover our
+                    latest range of outdoor clothing.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Category Top Banner -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Category Aside/Sidebar -->
+            <div class="d-none d-lg-flex col-lg-3">
+                <div class="pe-4">
+                    <!-- Category Aside -->
+                    <aside>
+
+                        <!-- Filter Category -->
+                        <div class="mb-4">
+                            <h2 class="mb-4 fs-6 mt-2 fw-bolder">Category</h2>
+                            <nav>
+                                <ul class="list-unstyled list-default-text">
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 상의</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 아우터</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 바지</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 원피스</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 스커트</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 양말/레그웨어</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 신발</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 모자</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 가방</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                    <li class="mb-2"><a
+                                                class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 액세서리</span> <span class="text-muted ms-4">(50)</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- / Filter Category-->
+
+                        <!-- Price Filter -->
+                        <div class="py-4 widget-filter widget-filter-price border-top">
+                            <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
+                               data-bs-toggle="collapse" href="#filter-price" role="button" aria-expanded="true"
+                               aria-controls="filter-price">
+                                Price
+                            </a>
+                            <div id="filter-price" class="collapse show">
+                                <div class="filter-price mt-6"></div>
+                                <div class="d-flex justify-content-between align-items-center mt-7">
+                                    <div class="input-group mb-0 me-2 border">
+                                        <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">&#8361;</span>
+                                        <input type="number" min="00" max="1000" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0">
+                                    </div>
+                                    <div class="input-group mb-0 ms-2 border">
+                                        <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">&#8361;</span>
+                                        <input type="number" min="00" max="1000" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Price Filter -->
+
+                        <!-- Sizes Filter -->
+                        <div class="py-4 widget-filter border-top">
+                            <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
+                               data-bs-toggle="collapse" href="#filter-sizes" role="button" aria-expanded="true"
+                               aria-controls="filter-sizes">
+                                Sizes
+                            </a>
+                            <div id="filter-sizes" class="collapse show">
+                                <div class="filter-options mt-3">
+                                    <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-0">
+                                        <label class="form-check-label fw-normal" for="filter-sizes-0">XS</label>
+                                    </div>
+                                    <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-1">
+                                        <label class="form-check-label fw-normal" for="filter-sizes-1">S</label>
+                                    </div>
+                                    <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-2">
+                                        <label class="form-check-label fw-normal" for="filter-sizes-2">M</label>
+                                    </div>
+                                    <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-3">
+                                        <label class="form-check-label fw-normal" for="filter-sizes-3">L</label>
+                                    </div>
+                                    <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-4">
+                                        <label class="form-check-label fw-normal" for="filter-sizes-4">XL</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Sizes Filter -->
+
+                    </aside>
+                    <!-- / Category Aside-->                    </div>
+            </div>
+            <!-- / Category Aside/Sidebar -->
+
+            <!-- Category Products-->
+            <div class="col-12 col-lg-9">
+
+                <!-- Top Toolbar-->
+                <div class="mb-4 d-md-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center flex-column flex-md-row">
+                        <!-- Filter Trigger-->
+                        <button class="btn bg-light p-3 d-flex d-lg-none align-items-center fs-xs fw-bold text-uppercase w-100 mb-2 mb-md-0 w-md-auto"
+                                type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters"
+                                aria-controls="offcanvasFilters">
+                            <i class="ri-equalizer-line me-2"></i> Filters
+                        </button>
+                        <!-- / Filter Trigger-->
+                        <div class="dropdown ms-md-2 lh-1 p-3 bg-light w-100 mb-2 mb-md-0 w-md-auto">
+                            <p class="fs-xs fw-bold text-uppercase text-muted-hover p-0 m-0" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">Sort By <i
+                                        class="ri-arrow-drop-down-line ri-lg align-bottom"></i></p>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item fs-xs fw-bold text-uppercase text-muted-hover mb-2"
+                                       href="#">Price: Hi Low</a></li>
+                                <li><a class="dropdown-item fs-xs fw-bold text-uppercase text-muted-hover mb-2"
+                                       href="#">Price: Low Hi</a></li>
+                                <li><a class="dropdown-item fs-xs fw-bold text-uppercase text-muted-hover mb-2"
+                                       href="#">Name</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                    <!-- / Top Toolbar-->
+
+                <!-- Products-->
+                <div class="row g-4 mb-5">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-1.jpg" alt="">
+                                </picture>
+                                <picture class="position-absolute z-index-20 start-0 top-0 hover-show bg-light">
+                                    <img class="w-100 img-fluid" title="" src="images/products/product-1b.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 90%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.7 (456)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Full Zip Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$1129.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <span class="badge card-badge bg-secondary">-25%</span>
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-2.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 60%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.4 (1289)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Mens Sherpa Hoodie</a>
+                                <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <p class="mb-0 me-2 text-danger fw-bolder">$<span>599.55</span></p>
+                                    <p class="mb-0 text-muted fw-bolder"><s>$<span>150.00</span></s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <span class="badge card-badge bg-secondary">-65%</span>
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-3.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 20%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.7 (754)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Womens Essentials Hoodie</a>
+                                <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <p class="mb-0 me-2 text-danger fw-bolder">$<span>779.55</span></p>
+                                    <p class="mb-0 text-muted fw-bolder"><s>$<span>1100.00</span></s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-4.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 70%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.4 (1289)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Elevated Lined Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$1829.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="d-none d-md-flex col-md-8">
+                        <div class="w-100 h-100 position-relative">
+                            <div class="position-absolute w-50 h-100 start-0 bottom-0 top-0 bg-pos-center-center bg-img-cover"
+                                 style="background-image: url(images/banners/banner-3.jpg);">
+                            </div>
+                            <div
+                                    class="position-absolute w-50 h-100 bg-light end-0 top-0 bottom-0 d-flex justify-content-center align-items-center">
+                                <div class="px-4 text-center">
+                                    <h4 class="fs-4 fw-bold mb-4">Built for adventure</h4>
+                                    <p class="mb-4">The perfect grab-and-go layer for every hiking adventure</p>
+                                    <a href="#" class="text-link-border border-2 pb-1 fw-bolder">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-1.jpg" alt="">
+                                </picture>
+                                <picture class="position-absolute z-index-20 start-0 top-0 hover-show bg-light">
+                                    <img class="w-100 img-fluid" title="" src="images/products/product-1b.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 90%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.7 (456)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Full Zip Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$1129.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <span class="badge card-badge bg-secondary">-25%</span>
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-2.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 60%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.4 (1289)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Mens Sherpa Hoodie</a>
+                                <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <p class="mb-0 me-2 text-danger fw-bolder">$<span>599.55</span></p>
+                                    <p class="mb-0 text-muted fw-bolder"><s>$<span>150.00</span></s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <span class="badge card-badge bg-secondary">-65%</span>
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-3.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 20%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.7 (754)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Womens Essentials Hoodie</a>
+                                <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <p class="mb-0 me-2 text-danger fw-bolder">$<span>779.55</span></p>
+                                    <p class="mb-0 text-muted fw-bolder"><s>$<span>1100.00</span></s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-4.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 70%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.4 (1289)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Elevated Lined Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$1829.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-5.jpg" alt="">
+                                </picture>
+                                <picture class="position-absolute z-index-20 start-0 top-0 hover-show bg-light">
+                                    <img class="w-100 img-fluid" title="" src="images/products/product-5b.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 84%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.8 (189)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Mens Slab Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$29.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-6.jpg" alt="">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 60%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.5 (1567)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Blocked Striped Hoodie</a>
+                                <p class="fw-bolder m-0 mt-2">$1329.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                </div>
+                <!-- / Products-->
+
+                <!-- Pagiation-->
+                <!-- Pagination-->
+                <nav class="border-top mt-5 pt-5 d-flex justify-content-between align-items-center" aria-label="Category Pagination">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"><i class="ri-arrow-left-line align-bottom"></i> Prev</a></li>
+                    </ul>
+                    <ul class="pagination">
+                        <li class="page-item active mx-1"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Next <i class="ri-arrow-right-line align-bottom"></i></a></li>
+                    </ul>
+                </nav>                    <!-- / Pagination-->
+            </div>
+            <!-- / Category Products-->
+        </div>
+    </div>
+
+</section>
+<!-- / Main Section-->
+
+<!-- Filters Offcanvas-->
+<div class="offcanvas offcanvas-end d-none" tabindex="-1" id="offcanvasFilters">
+    <div class="offcanvas-header d-flex align-items-center">
+        <h5 class="offcanvas-title" id="offcanvasFiltersLabel">Category Filters</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="d-flex flex-column justify-content-between w-100 h-100">
+
+            <!-- Filters-->
+            <div>
+                <!-- Filter Category -->
+                <div class="mb-4">
+                    <h2 class="mb-4 fs-6 mt-2 fw-bolder">Category</h2>
+                    <nav>
+                        <ul class="list-unstyled list-default-text">
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 상의</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 아우터</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 바지</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 원피스</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 스커트</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 양말/레그웨어</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 신발</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 모자</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 가방</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                            <li class="mb-2"><a
+                                        class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                        href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 액세서리</span> <span class="text-muted ms-4">(50)</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- / Filter Category-->
+
+                <!-- Price Filter -->
+                <div class="py-4 widget-filter widget-filter-price border-top">
+                    <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
+                       data-bs-toggle="collapse" href="#filter-modal-price" role="button" aria-expanded="false"
+                       aria-controls="filter-modal-price">
+                        Price
+                    </a>
+                    <div id="filter-modal-price" class="collapse">
+                        <div class="filter-price mt-6"></div>
+                        <div class="d-flex justify-content-between align-items-center mt-7">
+                            <div class="input-group mb-0 me-2 border">
+                                <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">&#8361;</span>
+                                <input type="number" min="00" max="1000" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0">
+                            </div>
+                            <div class="input-group mb-0 ms-2 border">
+                                <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">&#8361;</span>
+                                <input type="number" min="00" max="1000" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Price Filter -->
+
+                <!-- Sizes Filter -->
+                <div class="py-4 widget-filter border-top">
+                    <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
+                       data-bs-toggle="collapse" href="#filter-modal-sizes" role="button" aria-expanded="false"
+                       aria-controls="filter-modal-sizes">
+                        Sizes
+                    </a>
+                    <div id="filter-modal-sizes" class="collapse">
+                        <div class="filter-options mt-3">
+                            <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-0">
+                                <label class="form-check-label fw-normal" for="filter-sizes-modal-0">XS</label>
+                            </div>
+                            <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-1">
+                                <label class="form-check-label fw-normal" for="filter-sizes-modal-1">S</label>
+                            </div>
+                            <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-2">
+                                <label class="form-check-label fw-normal" for="filter-sizes-modal-2">M</label>
+                            </div>
+                            <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-3">
+                                <label class="form-check-label fw-normal" for="filter-sizes-modal-3">L</label>
+                            </div>
+                            <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
+                                <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-4">
+                                <label class="form-check-label fw-normal" for="filter-sizes-modal-4">XL</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Sizes Filter -->
+
+            </div>
+            <!-- / Filters-->
+
+            <!-- Filter Button-->
+            <div class="border-top pt-3">
+                <a href="#" class="btn btn-dark mt-2 d-block hover-lift-sm hover-boxshadow">Done</a>
+            </div>
+            <!-- /Filter Button-->
+        </div>
+    </div>
+</div>
+<!-- Review Offcanvas-->
+<div class="offcanvas offcanvas-end d-none" tabindex="-1" id="offcanvasReview">
+    <div class="offcanvas-header d-flex align-items-center">
+        <h5 class="offcanvas-title" id="offcanvasReviewLabel">Leave A Review</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Review Form -->
+        <form>
+            <div class="form-group mb-3 mt-2">
+                <label class="form-label" for="formReviewName">Your Name</label>
+                <input type="text" class="form-control" id="formReviewName" placeholder="Your Name">
+            </div>
+            <div class="form-group mb-3 mt-2">
+                <label class="form-label" for="formReviewEmail">Your Email</label>
+                <input type="text" class="form-control" id="formReviewEmail" placeholder="Your Email">
+            </div>
+            <div class="form-group mb-3 mt-2">
+                <label class="form-label" for="formReviewTitle">Your Review Title</label>
+                <input type="text" class="form-control" id="formReviewTitle" placeholder="Review Title">
+            </div>
+            <div class="form-group mb-3 mt-2">
+                <label class="form-label" for="formReviewReview">Your Review</label>
+                <textarea class="form-control" name="formReviewReview" id="formReviewReview" cols="30" rows="5"
+                          placeholder="Your Review"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark hover-lift hover-boxshadow">Submit Review</button>
+        </form>
+        <!-- / Review Form-->
+    </div>
+</div>
+<!-- Search Overlay-->
+<section class="search-overlay">
+    <div class="container search-container">
+        <div class="py-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <p class="lead lh-1 m-0 fw-bold">What are you looking for?</p>
+                <button class="btn btn-light btn-close-search"><i class="ri-close-circle-line align-bottom"></i> Close search</button>
+            </div>
+            <form>
+                <input type="text" class="form-control" id="searchForm" placeholder="Search by product or category name...">
+            </form>
+            <div class="my-5">
+                <p class="lead fw-bolder">2 results found for <span class="fw-bold">"Waterproof Jacket"</span></p>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-1.jpg"
+                                         alt="Bootstrap 5 Template by Pixel Rocket">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 80%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.2 (123)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Mens Pennie II Waterproof Jacket</a>
+                                <p class="fw-bolder m-0 mt-2">$325.66</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <!-- Card Product-->
+                        <div class="card position-relative h-100 card-listing hover-trigger">
+                            <div class="card-header">
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="images/products/product-2.jpg"
+                                         alt="Bootstrap 5 Template by Pixel Rocket">
+                                </picture>
+                                <div class="card-actions">
+                                    <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Quick Add</span>
+                                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                        <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                        <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0 text-center">
+                                <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                                    <!-- Review Stars Small-->
+                                    <div class="rating position-relative d-table">
+                                        <div class="position-absolute stars" style="width: 70%">
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                            <i class="ri-star-fill text-dark mr-1"></i>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                            <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                        </div>
+                                    </div>
+                                    <span class="small fw-bolder ms-2 text-muted"> 4.5 (1289)</span>
+                                </div>
+                                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
+                                   href="./product">Mens Storm Waterproof Jacket</a>
+                                <p class="fw-bolder m-0 mt-2">$499.99</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark p-4 text-white">
+                <p class="lead m-0">Didn't find what you are looking for? <a class="transition-all opacity-50-hover text-white text-link-border border-white pb-1 border-2"
+                                                                             href="#">Send us a message.</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Theme JS -->
+<!-- Vendor JS -->
+<script src="javascripts/vendor.bundle.js"></script>
+
+<!-- Theme JS -->
+<script src="javascripts/theme.bundle.js"></script>
+</body>
+
+</html>
