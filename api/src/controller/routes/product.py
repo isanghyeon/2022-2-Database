@@ -13,7 +13,7 @@ from models.shop.product import product as productDBModel
 
 ns = Namespace('api/product', description='Product API EP')
 
-cartModel = ns.model('Product register model', {
+RegistrationCartModel = ns.model('Product register model', {
     'idxProduct': fields.Integer(readonly=True, description=''),
     'ProductName': fields.String(required=True, description=''),
     'ProductCategory': fields.String(required=True, description=''),
@@ -25,9 +25,16 @@ cartModel = ns.model('Product register model', {
     'ProductImage': StringToJSON(required=True, description='')
 })
 
-signinModel = ns.model('Product login model', {
-    'ProductEmail': fields.String(required=True, description=''),
-    'ProductPWD': fields.String(required=True, description='')
+GetCartModel = ns.model('Product get method response', {
+    'idxProduct': fields.Integer(readonly=True, description=''),
+    'ProductName': fields.String(required=True, description=''),
+    'ProductCategory': fields.String(required=True, description=''),
+    'ProductID': fields.String(required=True, description=''),
+    'ProductOwnerID': fields.String(required=True, description=''),
+    'ProductRemaining': fields.Integer(required=True, description=''),
+    'ProductCost': fields.Integer(required=True, description=''),
+    'ProductInformation': fields.String(required=True, description=''),
+    'ProductImage': StringToJSON(required=True, description='')
 })
 
 Response = ns.model('Product Model - post/patch method response', {
@@ -47,43 +54,65 @@ class daoProductObject(object):
         self.counter = g.dbSession.query(productDBModel).count()
         return self.counter
 
-    def signIn(self, payload):
-        if self.ProductCount() == 0 or type(payload) is not dict or not len(payload["ProductEmail"]) or not len(payload["ProductPWD"]):
-            return responseObject().postMethodResponse(state=False)
+    def cartList(self):
+        if self.ProductCount() == 0:
+            ns.abort(404, f"Not Found")
 
-        self.selectData = g.dbSession.query(productDBModel).filter(productDBModel.ProductEmail == payload["ProductEmail"],
-                                                                    productDBModel.ProductPWD == payload["ProductPWD"]).first()
+        self.selectData = g.dbSession.query(productDBModel).all()
 
         if not self.selectData:
-            return responseObject().postMethodResponse(state=False)
+            ns.abort(404, f"Not Found")
 
-        return responseObject().postMethodResponse(state=True)
+        return self.selectData
+
+    def keywordSearch(self, payload):
+        if self.ProductCount() == 0:
+            ns.abort(404, f"Not Found")
+
+        self.selectData = g.dbSession.query(productDBModel).filter(productDBModel.ProductName.like(f'%{payload}%')).all()
+        if not self.selectData:
+            ns.abort(404, f"Not Found")
+
+        return self.selectData
+
+    def filter(self, payload):
+        if self.ProductCount() == 0:
+            ns.abort(404, f"Not Found")
+
+        self.selectData = g.dbSession.query(productDBModel).filter(productDBModel.ProductCategory == payload).all()
+
+        if not self.selectData:
+            ns.abort(404, f"Not Found")
+
+        return self.selectData
 
     @staticmethod
-    def signUp(payload):
+    def register(payload):
         if type(payload) is not dict:
             return responseObject().postMethodResponse(state=False)
 
         try:
             g.dbSession.add(productDBModel(
-                ProductEmail=payload["ProductEmail"],
-                ProductPWD=payload["ProductPWD"],
                 ProductName=payload["ProductName"],
-                Address=payload["Address"],
-                PhoneNumber=payload["PhoneNumber"],
-                ClassificationNumber=payload["ClassificationNumber"],
-                IdentifyNumber=payload["IdentifyNumber"],
-                LastLogin=payload["LastLogin"],
-                CreateTime=payload["CreateTime"]
+                ProductCategory=payload["ProductCategory"],
+                ProductID=payload["ProductID"],
+                ProductOwnerID=payload["ProductOwnerID"],
+                ProductRemaining=payload["ProductRemaining"],
+                ProductCost=payload["ProductCost"],
+                ProductInformation=payload["ProductInformation"],
+                ProductImage=payload["ProductImage"]
             ))
             g.dbSession.commit()
 
             return responseObject().postMethodResponse(state=True)
         except Exception as e:
-            print("Product Sign Up ERROR :: ", e)
+            print("Product Registration ERROR :: ", e)
             g.dbSession.rollback()
 
         return responseObject().postMethodResponse(state=False)
+
+    def delete(self, payload):
+        pass
 
     # def modify(self, payload):
     #     if type(payload) is not dict or not len(payload["data"]):
@@ -104,28 +133,66 @@ class daoProductObject(object):
 handler = daoProductObject()
 
 
-@ns.route('/signin')
-class epSigninRequestHandler(Resource):
-    """Request handler for Product Sign In"""
+@ns.route('')
+class epGetRequestHandler(Resource):
+    """Request handler for Product Get"""
 
     @ns.doc('Get Product')
-    @ns.expect(signinModel)
+    @ns.marshal_list_with(GetCartModel)
+    def get(self):
+        """Fetch a given resource"""
+        return handler.cartList()
+
+
+@ns.route('/filter/<string:filtering>')
+@ns.response(404, 'Not Found')
+@ns.param('filtering', 'keyword search in product category')
+class epFilterRequestHandler(Resource):
+    """Request handler for Product Filtering"""
+
+    @ns.doc('Filter Product')
+    @ns.marshal_list_with(GetCartModel)
+    def get(self, filtering):
+        """Fetch a given resource"""
+        return handler.filter(filtering)
+
+
+@ns.route('/search/<string:keyword>')
+@ns.response(404, 'Not Found')
+@ns.param('keyword', 'keyword search in product name')
+class epSearchRequestHandler(Resource):
+    """Request handler for Product Search"""
+
+    @ns.doc('Search Product')
+    @ns.marshal_list_with(GetCartModel)
+    def get(self, keyword):
+        """Fetch a given resource"""
+        return handler.keywordSearch(keyword)
+
+
+@ns.route('/register')
+class epRegisterRequestHandler(Resource):
+    """Request handler for Product Register"""
+
+    @ns.doc('Registration Product')
+    @ns.expect(RegistrationCartModel)
     @ns.marshal_with(Response)
     def post(self):
         """Fetch a given resource"""
-        return handler.signIn(ns.payload)
+        return handler.register(ns.payload)
 
 
-@ns.route('/signup')
-class epSignupRequestHandler(Resource):
-    """Request handler for Product Sign Up"""
+@ns.route('/delete/<int:productID>')
+@ns.response(404, 'Not Found')
+@ns.param('productID', 'productID search in product information')
+class epModifyRequestHandler(Resource):
+    """Request handler for modify"""
 
-    @ns.doc('Create Product')
-    @ns.expect(signupModel)
+    @ns.doc('Delete Product')
     @ns.marshal_with(Response)
-    def post(self):
+    def delete(self):
         """Fetch a given resource"""
-        return handler.signUp(ns.payload)
+        return handler.delete(productID)
 
 # @ns.route('/modify')
 # class epModifyRequestHandler(Resource):

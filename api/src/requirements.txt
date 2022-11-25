@@ -10,3 +10,4 @@ flask_restx
 validators
 pyopenssl==22.0.0
 packaging
+pymysql

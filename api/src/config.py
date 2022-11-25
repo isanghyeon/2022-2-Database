@@ -1,5 +1,4 @@
 import os
-import pymysql.cursors
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
