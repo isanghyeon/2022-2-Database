@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+    <!-- Page Meta Tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/stylesheets/libs.bundle.css"/>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/stylesheets/theme.bundle.css"/>
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fix for custom scrollbar if JS is disabled-->
+    <noscript>
+        <style>
+            /**
+            * Reinstate scrolling for non-JS clients
+            */
+            .simplebar-content-wrapper {
+                overflow: auto;
+            }
+        </style>
+    </noscript>
+
+    <!-- Page Title -->
+    <title>Alpine | Bootstrap 5 Ecommerce HTML Template</title>
+
+</head>
+<body class="">
+
+<%- include('components/header.ejs') %>
+
+<!-- Main Section-->
+<section class="mt-0 ">
+
+    <!-- Category Top Banner -->
+    <div class="py-6 bg-img-cover bg-dark bg-overlay-gradient-dark position-relative overflow-hidden mb-4 bg-pos-center-center"
+         style="background-image: url(/images/banners/banner-1.jpg);">
+        <div class="container position-relative z-index-20" data-aos="fade-right" data-aos-delay="300">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item breadcrumb-light"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item breadcrumb-light"><a href="#">Activities</a></li>
+                    <li class="breadcrumb-item active breadcrumb-light" aria-current="page">Clothing</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold display-6 mb-4 text-white">겨울 의류 세일!</h1>
+            <div class="col-12 col-md-6">
+                <p class="lead text-white mb-0">
+                    DBShop에서 겨울 의류를 구입하세요.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Category Top Banner -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Category Aside/Sidebar -->
+            <div class="d-none d-lg-flex col-lg-3">
+                <div class="pe-4">
+                    <!-- Category Aside -->
+                    <aside>
+
+                        <!-- Filter Category -->
+                        <div class="mb-4">
+                            <h2 class="mb-4 fs-6 mt-2 fw-bolder">의류 카테고리</h2>
+                            <nav>
+                                <ul class="list-unstyled list-default-text">
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="/product?"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 상의</span></a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 아우터</span></a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 바지</span></a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 원피스</span></a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 양말/레그웨어</span></a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                           href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 신발</span> </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
+                                                href="#"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 모자</span> </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- / Filter Category-->
+
+                    </aside>
+                    <!-- / Category Aside-->
+                </div>
+            </div>
+            <!-- / Category Aside/Sidebar -->
+
+            <!-- Category Products-->
+            <div class="col-12 col-lg-9">
+
+                <%- include('components/product-info.ejs') %>
+                <!-- Related Categories-->
+                <div class="border-top mt-5 pt-5">
+                    <p class="lead fw-bolder">Related Categories</p>
+                    <div class="d-flex flex-wrap justify-content-start align-items-center">
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Hiking
+                            Shoes</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Waterproof Trousers</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Hiking
+                            Shirts</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Jackets</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Gilets</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Hiking
+                            Socks</a>
+                        <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2 mb-md-0 text-white-hover"
+                           href="#">Rugsacks</a>
+                    </div>
+                </div>
+                <!-- Related Categories-->
+
+            </div>
+            <!-- / Category Products-->
+        </div>
+    </div>
+</section>
+<!-- / Main Section-->
+
+<%- include('components/footer.ejs') %>
+<%- include('components/search.ejs') %>
+<!-- Theme JS -->
+<!-- Vendor JS -->
+<script src="/javascripts/vendor.bundle.js"></script>
+
+<!-- Theme JS -->
+<script src="/javascripts/theme.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+# Author: Sang Hyeon Lee
+# Date: 2022.11.25
+# Description: 
+# 
+
+version: '3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports: 
+      - "80:80"
+    restart: alway
+    volumes:
+      - ./nginx/conf/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - nodejs
+
+  nodejs:
+    image: node:alpine
+    environment:
+      NODE_ENV: production
+    restart: alway
+    working_dir: /home/app
+    volumes: 
+      - ./node/src:/home/app
+    depends_on: 
+      - api  
+    command: sh -c "npm install && npm audit fix --force && node /home/app/bin/www"
+
+  api:
+    image: python:3.10-buster
+    environment:
+      FLASK_ENV: production
+    restart: alway
+    working_dir: /home/app
+    volumes: 
+      - ./api/src:/home/app
+    depends_on:
+      - db
+    command: sh -c "pip3 install requirements.txt && flask db init && flask db migrate && flask db upgrade && python3.10 app.py"
+
+  db:
+    image: mariadb:10.6.4-focal
+    environment:
+      MYSQL_ROOT_PASSWORD: production
+      MYSQL_DATABASE: db_shop
+      TZ: Asia/Seoul
+    volumes: 
+      - ./src/docker-entrypoint-initdb.sql:/docker-entrypoint-initdb.d/"
