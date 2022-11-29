@@ -4,12 +4,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressSession = require('express-session');
+const MemoryStore = require('memorystore')(expressSession);
 const crypto = require('crypto');
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 
 const app = express();
+
+// session timeout
+const maxAge = 1000 * 60 * 5;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressSession({
     secret: crypto.randomBytes(20).toString("hex"),
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MemoryStore({checkPeriod: maxAge}),
+    cookie: {maxAge,}
 }))
 
 app.use('/', indexRouter);

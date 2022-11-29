@@ -47,9 +47,11 @@
 
 </head>
 <body class="">
-
-<%-include('components/header-main.ejs')%>
-
+<% if (typeof(userSession.authorization) === 'undefined') { %>
+    <%-include('components/header-main.ejs')%>
+<% } else { %>
+    <%-include('components/header.ejs')%>
+<% } %>
 <!-- Main Section-->
 <section class="mt-0 ">
     <!-- Page Content Goes Here -->

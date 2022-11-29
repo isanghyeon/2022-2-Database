@@ -48,7 +48,12 @@
 </head>
 <body class="">
 
-<%- include('components/header.ejs') %>
+<% if (typeof(userSession.authorization) === 'undefined') { %>
+    <%-include('components/header-main.ejs')%>
+<% } else { %>
+    <%-include('components/header.ejs')%>
+<% } %>
+<%- include('components/search.ejs') %>
 
 <!-- Main Section-->
 <section class="mt-0 ">
@@ -165,7 +170,6 @@
 <!-- / Main Section-->
 
 <%- include('components/footer.ejs') %>
-<%- include('components/search.ejs') %>
 <!-- Theme JS -->
 <!-- Vendor JS -->
 <script src="/javascripts/vendor.bundle.js"></script>

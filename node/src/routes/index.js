@@ -5,7 +5,8 @@ const crypto = require('crypto');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express', session: req.session});
+    console.log(req.session.authorization);
+    res.render('index', {title: 'Express', userSession: req.session});
 });
 
 /* GET users listing. */
@@ -15,7 +16,7 @@ router.get('/product', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/shop', function (req, res, next) {
-    res.render('shop', {title: 'Express', session: req.session});
+    res.render('shop', {title: 'Express', userSession: req.session});
 });
 
 /* GET users listing. */
@@ -34,4 +35,5 @@ router.get('/checkout', function (req, res, next) {
     // else
     //     return res.redirect('/');
 });
+
 module.exports = router;

@@ -7,7 +7,7 @@ import sys, os, json
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from controller.customizeField import StringToJSON
+# from controller.customizeField import StringToJSON
 from controller.responseObj import responseObject
 from models.shop.product import product as productDBModel
 
@@ -22,7 +22,7 @@ RegistrationCartModel = ns.model('Product register model', {
     'ProductRemaining': fields.Integer(required=True, description=''),
     'ProductCost': fields.Integer(required=True, description=''),
     'ProductInformation': fields.String(required=True, description=''),
-    'ProductImage': StringToJSON(required=True, description='')
+    'ProductImage': fields.String(required=True, description='')
 })
 
 GetCartModel = ns.model('Product get method response', {
@@ -34,7 +34,7 @@ GetCartModel = ns.model('Product get method response', {
     'ProductRemaining': fields.Integer(required=True, description=''),
     'ProductCost': fields.Integer(required=True, description=''),
     'ProductInformation': fields.String(required=True, description=''),
-    'ProductImage': StringToJSON(required=True, description='')
+    'ProductImage': fields.String(required=True, description='')
 })
 
 Response = ns.model('Product Model - post/patch method response', {
@@ -54,10 +54,10 @@ class daoProductObject(object):
         self.counter = g.dbSession.query(productDBModel).count()
         return self.counter
 
-    def cartList(self):
+    def productList(self):
         if self.ProductCount() == 0:
             ns.abort(404, f"Not Found")
-
+        print(self.selectData)
         self.selectData = g.dbSession.query(productDBModel).all()
 
         if not self.selectData:
@@ -163,7 +163,7 @@ class epGetRequestHandler(Resource):
     @ns.marshal_list_with(GetCartModel)
     def get(self):
         """Fetch a given resource"""
-        return handler.cartList()
+        return handler.productList()
 
 
 @ns.route('/filter/<string:filtering>')
