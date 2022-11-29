@@ -16,7 +16,7 @@ class product(shopDB.Model):
     ProductRemaining = shopDB.Column(shopDB.INTEGER, nullable=True, default=0)
     ProductCost = shopDB.Column(shopDB.INTEGER, nullable=True, default=0)
     ProductInformation = shopDB.Column(shopDB.TEXT, nullable=False)
-    ProductImage = shopDB.Column(shopDB.JSON, nullable=True)
+    ProductImage = shopDB.Column(shopDB.VARCHAR(100), nullable=True)
 
     def __init__(self, ProductName, ProductCategory, ProductID, ProductOwnerID, ProductRemaining, ProductCost, ProductInformation, ProductImage, **kwargs):
         self.ProductName = ProductName
