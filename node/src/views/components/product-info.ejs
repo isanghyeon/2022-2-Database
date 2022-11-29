@@ -1,14 +1,14 @@
 <!-- Products-->
 <div class="row g-4 mb-5">
 
-    <% if (data) { %>
-        <% for () { %>
-            <!-- Card Product-->
+    <% if (productData) { %>
+        <% productData.forEach( (item) => { %>
+
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card position-relative h-100 card-listing hover-trigger">
                     <div class="card-header">
                         <picture class="position-relative overflow-hidden d-block bg-light">
-                            <img class="w-100 img-fluid position-relative z-index-10" title="" src="NaN" alt="">
+                            <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/<%= item.ProductImage %>" alt="">
                         </picture>
                         <div class="card-actions">
                             <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">사이즈</span>
@@ -39,31 +39,15 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center" href="NaN">NaN</a>
-                        <p class="fw-bolder m-0 mt-2">₩</p>
+                        <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center" href="/product?productID=<%= item.ProductID %>"><%= item.ProductName %></a>
+                        <p class="fw-bolder m-0 mt-2"><%= item.ProductCost %>₩</p>
                     </div>
                 </div>
             </div>
-            <!--/ Card Product-->
-        <% } %>
+
+        <% }) %>
     <% } else { %>
         <p>Not Found</p>
     <% } %>
-
-    <!--    <div class="d-none d-md-flex col-md-8">-->
-    <!--        <div class="w-100 h-100 position-relative">-->
-    <!--            <div class="position-absolute w-50 h-100 start-0 bottom-0 top-0 bg-pos-center-center bg-img-cover"-->
-    <!--                 style="background-image: url(/images/banners/banner-3.jpg);">-->
-    <!--            </div>-->
-    <!--            <div-->
-    <!--                    class="position-absolute w-50 h-100 bg-light end-0 top-0 bottom-0 d-flex justify-content-center align-items-center">-->
-    <!--                <div class="px-4 text-center">-->
-    <!--                    <h4 class="fs-4 fw-bold mb-4">Built for adventure</h4>-->
-    <!--                    <p class="mb-4">The perfect grab-and-go layer for every hiking adventure</p>-->
-    <!--                    <a href="#" class="text-link-border border-2 pb-1 fw-bolder">Shop Now</a>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
 </div>
 <!-- / Products-->
