@@ -1,185 +1,69 @@
 <!-- Products-->
 <div class="row g-4 mb-5">
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img id="image" class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-1.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a id=name class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Name</a>
-                <p id="price" class="fw-bolder m-0 mt-2">Price</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-2.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Mens Sherpa 후드</a>
-                <div class="d-flex justify-content-center align-items-center mt-2">
-                    <p class="fw-bolder m-0 mt-2">$<span>599.55</span></p>
-                </div>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-3.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Womens Essentials 후드</a>
-                <div class="d-flex justify-content-center align-items-center mt-2">
-                    <p class="fw-bolder m-0 mt-2">$<span>779.55</span></p>
-                </div>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-4.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Elevated 린 후드</a>
-                <p class="fw-bolder m-0 mt-2">$1829.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="d-none d-md-flex col-md-8">
-        <div class="w-100 h-100 position-relative">
-            <div class="position-absolute w-50 h-100 start-0 bottom-0 top-0 bg-pos-center-center bg-img-cover"
-                 style="background-image: url(/images/banners/banner-3.jpg);">
-            </div>
-            <div
-                    class="position-absolute w-50 h-100 bg-light end-0 top-0 bottom-0 d-flex justify-content-center align-items-center">
-                <div class="px-4 text-center">
-                    <h4 class="fs-4 fw-bold mb-4">For you</h4>
-                    <p class="mb-4">당신을 만족시킬 완벽한 DBShop</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-5.jpg" alt="">
-                </picture>
+    <% if (data) { %>
+        <% for () { %>
+            <!-- Card Product-->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card position-relative h-100 card-listing hover-trigger">
+                    <div class="card-header">
+                        <picture class="position-relative overflow-hidden d-block bg-light">
+                            <img class="w-100 img-fluid position-relative z-index-10" title="" src="NaN" alt="">
+                        </picture>
+                        <div class="card-actions">
+                            <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">사이즈</span>
+                            <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                                <button class="btn btn-outline-dark btn-sm mx-2">S</button>
+                                <button class="btn btn-outline-dark btn-sm mx-2">M</button>
+                                <button class="btn btn-outline-dark btn-sm mx-2">L</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 text-center">
+                        <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
+                            <!-- Review Stars Small-->
+                            <div class="rating position-relative d-table">
+                                <div class="position-absolute stars" style="width: 100%">
+                                    <i class="ri-star-fill text-dark mr-1"></i>
+                                    <i class="ri-star-fill text-dark mr-1"></i>
+                                    <i class="ri-star-fill text-dark mr-1"></i>
+                                    <i class="ri-star-fill text-dark mr-1"></i>
+                                    <i class="ri-star-fill text-dark mr-1"></i>
+                                </div>
+                                <div class="stars">
+                                    <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                    <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                    <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                    <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                    <i class="ri-star-fill mr-1 text-muted opacity-25"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center" href="NaN">NaN</a>
+                        <p class="fw-bolder m-0 mt-2">₩</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">Mens 슬랩 후드</a>
-                <p class="fw-bolder m-0 mt-2">$29.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-6.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">검정색 스트립 후드</a>
-                <p class="fw-bolder m-0 mt-2">$1329.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-7.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">민트 스트립 후드</a>
-                <p class="fw-bolder m-0 mt-2">$1329.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-8.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">하늘색 스트립 후드</a>
-                <p class="fw-bolder m-0 mt-2">$1329.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-9.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">하늘색 반팔</a>
-                <p class="fw-bolder m-0 mt-2">$1329.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
-    <div class="col-12 col-sm-6 col-md-4">
-        <!-- Card Product-->
-        <div class="card position-relative h-100 card-listing hover-trigger">
-            <div class="card-header">
-                <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="/images/products/product-10.jpg" alt="">
-                </picture>
-            </div>
-            <div class="card-body px-0 text-center">
-                <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-                   href="/product">파란색 반팔</a>
-                <p class="fw-bolder m-0 mt-2">$1329.99</p>
-            </div>
-        </div>
-        <!--/ Card Product-->
-    </div>
+            <!--/ Card Product-->
+        <% } %>
+    <% } else { %>
+        <p>Not Found</p>
+    <% } %>
 
-    <script src="/javascripts/senddata.js"></script>
+    <!--    <div class="d-none d-md-flex col-md-8">-->
+    <!--        <div class="w-100 h-100 position-relative">-->
+    <!--            <div class="position-absolute w-50 h-100 start-0 bottom-0 top-0 bg-pos-center-center bg-img-cover"-->
+    <!--                 style="background-image: url(/images/banners/banner-3.jpg);">-->
+    <!--            </div>-->
+    <!--            <div-->
+    <!--                    class="position-absolute w-50 h-100 bg-light end-0 top-0 bottom-0 d-flex justify-content-center align-items-center">-->
+    <!--                <div class="px-4 text-center">-->
+    <!--                    <h4 class="fs-4 fw-bold mb-4">Built for adventure</h4>-->
+    <!--                    <p class="mb-4">The perfect grab-and-go layer for every hiking adventure</p>-->
+    <!--                    <a href="#" class="text-link-border border-2 pb-1 fw-bolder">Shop Now</a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 </div>
 <!-- / Products-->
