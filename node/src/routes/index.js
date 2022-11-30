@@ -36,10 +36,15 @@ router.get('/shop', async function (req, res, next) {
 /* GET users listing. */
 router.get('/cart', function (req, res, next) {
     res.render('cart', {title: 'Express'});
-    // if (req.session.authorizationConsumer)
-    //     res.render('cart', {title: 'Express'});
-    // else
-    //     return res.redirect('/');
+});
+
+/* GET users listing. */
+router.get('/signup', function (req, res, next) {
+    res.render('signup', {title: 'Express', userSession: req.session});
+});
+
+router.get('/signin', function (req, res, next) {
+    res.render('signin', {title: 'Express', userSession: req.session});
 });
 
 
