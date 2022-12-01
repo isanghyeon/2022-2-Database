@@ -77,86 +77,179 @@
             <!-- /Images Section-->
 
             <!-- Product Info Section-->
-            <div class="col-12 col-lg-5">
-                <div class="pb-3">
+            <% if (userSession.admin) { %>
+                <div class="col-12 col-lg-5">
+                    <div class="pb-3">
 
-                    <!-- Product Name, Review, Brand, Price-->
+                        <!-- Product Name, Review, Brand, Price-->
 
-                    <h1 class="mb-2 fs-2 fw-bold"><%= productData.ProductName %></h1>
-                    <div class="d-flex justify-content-start align-items-center">
-                        <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2"><%= productData.ProductCost %> ₩</p>
-                    </div>
-                    <!-- /Product Name, Review, Brand, Price-->
-
-
-                    <!-- Product Options-->
-                    <div class="border-top mt-4 mb-3">
-                        <div class="product-option mb-4 mt-4">
-                            <small class="text-uppercase d-block fw-bolder mb-2">
-                                색깔 : <span class="selected-option fw-bold">하늘색</span>
-                            </small>
-                            <div class="d-flex justify-content-start">
-                                <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom">
-                                    <input type="radio" class="form-check-color-input" id="option-colour-1" name="option-colour"
-                                           value="검정색">
-                                    <label class="form-check-label" for="option-colour-1"></label>
-                                </div>
-                                <div
-                                        class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-warning">
-                                    <input type="radio" class="form-check-color-input" id="option-colour-2" name="option-colour"
-                                           value="노란색">
-                                    <label class="form-check-label" for="option-colour-2"></label>
-                                </div>
-                                <div
-                                        class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-info">
-                                    <input type="radio" class="form-check-color-input" id="option-colour-3" name="option-colour"
-                                           value="하늘색" checked>
-                                    <label class="form-check-label" for="option-colour-3"></label>
-                                </div>
-                                <div
-                                        class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-danger">
-                                    <input type="radio" class="form-check-color-input" id="option-colour-4" name="option-colour"
-                                           value="빨간색">
-                                    <label class="form-check-label" for="option-colour-4"></label>
-                                </div>
-                            </div>
+                        <h1 class="mb-2 fs-2 fw-bold"><input value="<%= productData.ProductName %>"></h1>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2"><input value="<%= productData.ProductCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); %>"> ₩</p>
                         </div>
-                        <div class="product-option">
-                            <small class="text-uppercase d-block fw-bolder mb-2">
-                                사이즈 : <span class="selected-option fw-bold"></span>
-                            </small>
-                            <div class="form-group">
-                                <select name="selectSize" class="form-control" data-choices>
-                                    <option value="">사이즈를 선택하세요.</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                </select>
-                            </div>
+                        <!-- /Product Name, Review, Brand, Price-->
+
+
+                        <!-- Product Options-->
+                        <div class="border-top mt-4 mb-3">
+                            <form class="mx-1 mx-md-4" action="/product" method="post">
+
+                                <div class="product-option mb-4 mt-4">
+                                    <small class="text-uppercase d-block fw-bolder mb-2">
+                                        색깔 : <span class="selected-option fw-bold">하늘색</span>
+                                    </small>
+                                    <div class="d-flex justify-content-start">
+                                        <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-1" name="option-colour"
+                                                   value="검정색">
+                                            <label class="form-check-label" for="option-colour-1"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-warning">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-2" name="option-colour"
+                                                   value="노란색">
+                                            <label class="form-check-label" for="option-colour-2"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-info">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-3" name="option-colour"
+                                                   value="하늘색" checked>
+                                            <label class="form-check-label" for="option-colour-3"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-danger">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-4" name="option-colour"
+                                                   value="빨간색">
+                                            <label class="form-check-label" for="option-colour-4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-option">
+                                    <small class="text-uppercase d-block fw-bolder mb-2">
+                                        사이즈 : <span class="selected-option fw-bold"></span>
+                                    </small>
+                                    <div class="form-group">
+                                        <select name="selectSize" class="form-control" data-choices>
+                                            <option value="">사이즈를 선택하세요.</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-check-color-input" id="productName" name="productName" value="<%= productData.ProductName %>">
+                                <input type="hidden" class="form-check-color-input" id="productID" name="productID" value="<%= productData.ProductID %>">
+                                <input type="hidden" class="form-check-color-input" id="productCost" name="productCost" value="<%= productData.ProductCost %>">
+                                <!-- Add To Cart-->
+                                <div class="d-flex justify-content-between mt-3">
+                                    <button type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">상품 수정</button>
+                                </div>
+                                <!-- /Add To Cart-->
+                            </form>
                         </div>
+                        <!-- /Product Options-->
+
+
+                        <!-- Special Offers-->
+                        <div class="bg-light rounded py-2 px-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex border-0 px-0 bg-transparent">
+                                    <i class="ri-truck-line"></i>
+                                    <span class="fs-6 ms-3">배송비는 <input value="2500">원 입니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Special Offers-->
+
                     </div>
-                    <!-- /Product Options-->
-
-                    <!-- Add To Cart-->
-                    <div class="d-flex justify-content-between mt-3">
-                        <button class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">장바구니 담기</button>
-                    </div>
-                    <!-- /Add To Cart-->
-
-
-                    <!-- Special Offers-->
-                    <div class="bg-light rounded py-2 px-3">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex border-0 px-0 bg-transparent">
-                                <i class="ri-truck-line"></i>
-                                <span class="fs-6 ms-3">배송비는 2500원 입니다.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /Special Offers-->
-
                 </div>
-            </div>
+            <% } else { %>
+                <div class="col-12 col-lg-5">
+                    <div class="pb-3">
+
+                        <!-- Product Name, Review, Brand, Price-->
+
+                        <h1 class="mb-2 fs-2 fw-bold"><%= productData.ProductName %></h1>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2"><%= productData.ProductCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); %> ₩</p>
+                        </div>
+                        <!-- /Product Name, Review, Brand, Price-->
+
+
+                        <!-- Product Options-->
+                        <div class="border-top mt-4 mb-3">
+                            <form class="mx-1 mx-md-4" action="/product" method="post">
+
+                                <div class="product-option mb-4 mt-4">
+                                    <small class="text-uppercase d-block fw-bolder mb-2">
+                                        색깔 : <span class="selected-option fw-bold">하늘색</span>
+                                    </small>
+                                    <div class="d-flex justify-content-start">
+                                        <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-1" name="option-colour"
+                                                   value="검정색">
+                                            <label class="form-check-label" for="option-colour-1"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-warning">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-2" name="option-colour"
+                                                   value="노란색">
+                                            <label class="form-check-label" for="option-colour-2"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-info">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-3" name="option-colour"
+                                                   value="하늘색" checked>
+                                            <label class="form-check-label" for="option-colour-3"></label>
+                                        </div>
+                                        <div
+                                                class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-danger">
+                                            <input type="radio" class="form-check-color-input" id="option-colour-4" name="option-colour"
+                                                   value="빨간색">
+                                            <label class="form-check-label" for="option-colour-4"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-option">
+                                    <small class="text-uppercase d-block fw-bolder mb-2">
+                                        사이즈 : <span class="selected-option fw-bold"></span>
+                                    </small>
+                                    <div class="form-group">
+                                        <select name="selectSize" class="form-control" data-choices>
+                                            <option value="">사이즈를 선택하세요.</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-check-color-input" id="productName" name="productName" value="<%= productData.ProductName %>">
+                                <input type="hidden" class="form-check-color-input" id="productID" name="productID" value="<%= productData.ProductID %>">
+                                <input type="hidden" class="form-check-color-input" id="productCost" name="productCost" value="<%= productData.ProductCost %>">
+                                <!-- Add To Cart-->
+                                <div class="d-flex justify-content-between mt-3">
+                                    <button type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">장바구니 담기</button>
+                                </div>
+                                <!-- /Add To Cart-->
+                            </form>
+                        </div>
+                        <!-- /Product Options-->
+
+
+                        <!-- Special Offers-->
+                        <div class="bg-light rounded py-2 px-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex border-0 px-0 bg-transparent">
+                                    <i class="ri-truck-line"></i>
+                                    <span class="fs-6 ms-3">배송비는 2500원 입니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Special Offers-->
+
+                    </div>
+                </div>
+            <% } %>
             <!-- / Product Info Section-->
         </div>
     </section>

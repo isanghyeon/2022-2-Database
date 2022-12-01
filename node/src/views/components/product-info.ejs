@@ -4,7 +4,7 @@
     <% if (productData) { %>
         <% productData.forEach( (item) => { %>
 
-            <div class="col-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4" id="<%= item.ProductID %>">
                 <div class="card position-relative h-100 card-listing hover-trigger">
                     <div class="card-header">
                         <picture class="position-relative overflow-hidden d-block bg-light">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center" href="/product?productID=<%= item.ProductID %>"><%= item.ProductName %></a>
-                        <p class="fw-bolder m-0 mt-2"><%= item.ProductCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); %>₩</p>
+                        <p class="fw-bolder m-0 mt-2"><%= item.ProductCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); %> ₩</p>
                     </div>
                 </div>
             </div>

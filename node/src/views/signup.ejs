@@ -48,7 +48,7 @@
 </head>
 <body class="">
 
-<% if (typeof(userSession.authorization) === 'undefined' || userSession.authorization) { %>
+<% if (typeof(userSession.authorization) === 'undefined' || !userSession.authorization) { %>
     <%-include('components/header-main.ejs')%>
 <% } else { %>
     <%-include('components/header.ejs')%>
@@ -73,12 +73,12 @@
 
                                             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                                            <form class="mx-1 mx-md-4">
+                                            <form class="mx-1 mx-md-4" action="/signup" method="post">
 
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="formUserEmail" class="form-control"/>
+                                                        <input type="text" id="formUserEmail" name="formUserEmail" class="form-control"/>
                                                         <label class="form-label" for="formUserEmail">Your Email</label>
                                                     </div>
                                                 </div>
@@ -86,7 +86,7 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="password" id="formUserPWD" class="form-control"/>
+                                                        <input type="password" id="formUserPWD" name="formUserPWD" class="form-control"/>
                                                         <label class="form-label" for="formUserPWD">Password</label>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="password" id="formUserName" class="form-control"/>
+                                                        <input type="text" id="formUserName" name="formUserName" class="form-control"/>
                                                         <label class="form-label" for="formUserName">Your Name</label>
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="password" id="formUserAddress" class="form-control"/>
+                                                        <input type="text" id="formUserAddress" name="formUserAddress" class="form-control"/>
                                                         <label class="form-label" for="formUserAddress">Address</label>
                                                     </div>
                                                 </div>
@@ -110,13 +110,13 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="password" id="formUserPhoneNumber" class="form-control"/>
+                                                        <input type="text" id="formUserPhoneNumber" name="formUserPhoneNumber" class="form-control"/>
                                                         <label class="form-label" for="formUserPhoneNumber">Phone Number</label>
                                                     </div>
                                                 </div>
 
                                                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                                                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
                                                 </div>
                                             </form>
 

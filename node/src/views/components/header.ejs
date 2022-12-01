@@ -47,6 +47,18 @@
                             Shop
                         </a>
                     </li>
+                    <% if (userSession.admin) { %>
+<!--                        <li class="nav-item me-lg-4">-->
+<!--                            <a class="nav-link fw-bolder py-lg-4" href="/admin/product/create">-->
+<!--                                상품 추가-->
+<!--                            </a>-->
+<!--                        </li>-->
+                        <li class="nav-item me-lg-4">
+                            <a class="nav-link fw-bolder py-lg-4" href="/admin/product/delete">
+                                상품 삭제
+                            </a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
             <!-- / Main Navigation-->
@@ -54,40 +66,48 @@
             <!-- Navbar Icons-->
             <ul class="list-unstyled mb-0 d-flex align-items-center">
 
-                <!-- Navbar Toggle Icon-->
-                <li class="d-inline-block d-lg-none">
-                    <button
-                            class="btn btn-link px-2 text-decoration-none navbar-toggler border-0 d-flex align-items-center"
-                            data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ri-menu-line ri-lg align-middle"></i>
-                    </button>
-                </li>
-                <!-- /Navbar Toggle Icon-->
+                <% if (!userSession.admin) { %>
+                    <!-- Navbar Toggle Icon-->
+                    <li class="d-inline-block d-lg-none">
+                        <button
+                                class="btn btn-link px-2 text-decoration-none navbar-toggler border-0 d-flex align-items-center"
+                                data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="ri-menu-line ri-lg align-middle"></i>
+                        </button>
+                    </li>
+                    <!-- /Navbar Toggle Icon-->
 
-                <!-- Navbar Search-->
-                <li class="ms-1 d-inline-block">
-                    <button
-                            class="btn btn-link px-2 text-decoration-none d-flex align-items-center"
-                            data-pr-search>
-                        <i class="ri-search-2-line ri-lg align-middle"></i>
-                    </button>
-                </li>
-                <!-- /Navbar Search-->
+                    <!-- Navbar Search-->
+                    <li class="ms-1 d-inline-block">
+                        <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/search">
+                            <i class="ri-search-2-line ri-lg align-middle"></i>
+                        </a>
+                    </li>
+                    <!-- /Navbar Search-->
 
-                <!-- Navbar Login-->
+                    <!-- Navbar Login-->
+                    <li class="ms-1 d-none d-lg-inline-block">
+                        <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/mypage">
+                            <i class="ri-user-line ri-lg align-middle"></i>
+                        </a>
+                    </li>
+                    <!-- /Navbar Login-->
+
+                    <!-- Navbar Cart-->
+                    <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/cart/<%= userSession.authorization %>">
+                        <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
+                    </a>
+                    <!-- /Navbar Cart-->
+                <% } %>
+                <!-- Navbar Logout-->
                 <li class="ms-1 d-none d-lg-inline-block">
-                    <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/mypage">
-                        <i class="ri-user-line ri-lg align-middle"></i>
+                    <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/logout">
+                        <i class="ri-user-4-line ri-lg align-middle"></i>
                     </a>
                 </li>
-                <!-- /Navbar Login-->
+                <!-- /Navbar Logout-->
 
-                <!-- Navbar Cart-->
-                <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center" href="/cart">
-                    <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
-                </a>
-                <!-- /Navbar Cart-->
 
             </ul>
             <!-- Navbar Icons-->

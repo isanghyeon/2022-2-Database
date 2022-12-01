@@ -47,7 +47,7 @@
 
 </head>
 <body class="">
-<% if (typeof(userSession.authorization) === 'undefined' || userSession.authorization) { %>
+<% if (typeof(userSession.authorization) === 'undefined' || !userSession.authorization) { %>
     <%-include('components/header-main.ejs')%>
 <% } else { %>
     <%-include('components/header.ejs')%>

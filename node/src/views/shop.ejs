@@ -48,12 +48,11 @@
 </head>
 <body class="">
 
-<% if (typeof(userSession.authorization) === 'undefined') { %>
-    <%-include('components/header-main.ejs')%>
+<% if (typeof (userSession.authorization) === 'undefined') { %>
+    <%- include('components/header-main.ejs') %>
 <% } else { %>
-    <%-include('components/header.ejs')%>
+    <%- include('components/header.ejs') %>
 <% } %>
-<%- include('components/search.ejs') %>
 
 <!-- Main Section-->
 <section class="mt-0 ">
@@ -120,7 +119,7 @@
                                     </li>
                                     <li class="mb-2">
                                         <a class="text-decoration-none text-body text-secondary-hover transition-all d-flex justify-content-between align-items-center"
-                                                href="/shop?productType=모자"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 모자</span> </a>
+                                           href="/shop?productType=모자"><span><i class="ri-arrow-right-s-line align-bottom ms-n1"></i> 모자</span> </a>
                                     </li>
                                 </ul>
                             </nav>
@@ -134,7 +133,7 @@
             <!-- / Category Aside/Sidebar -->
 
             <!-- Category Products-->
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-9" id="ProductIDTable">
 
                 <%- include('components/product-info.ejs') %>
                 <!-- Related Categories-->

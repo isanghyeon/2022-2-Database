@@ -14,7 +14,7 @@ const APICommunicationError = (name, message) => {
  * @param {boolean} isLocalhost
  */
 const communication = async (endpoint, requestType = "GET", dataPackage = null, isLocalhost = false) => {
-    let API = "logos.sch.ac.kr:40101";
+    let API = "http://logos.sch.ac.kr:40101/api/";
 
     let requestOptions = {
         method: requestType,
@@ -28,13 +28,15 @@ const communication = async (endpoint, requestType = "GET", dataPackage = null, 
     const communication = await fetch(`${(isLocalhost) ? "" : API}${endpoint}`, requestOptions)
         .catch(error => {
             error = error.toString().split(": ");
-            throw new APICommunicationError("Can't receive data", "Database may not created or API Service is down for now.");
+            // throw new APICommunicationError("Can't receive data", "Database may not created or API Service is down for now.");
+            return "error";
             // throw new APICommunicationError(error[0], error[1]);
         });
     const dataset = await communication.json();
     if (communication.ok) return dataset;
     if (!communication.ok) {
-        throw new APICommunicationError("Error", communication.statusText);
+        // throw new APICommunicationError("Error", communication.statusText);
+        return "error";
     }
 }
 
