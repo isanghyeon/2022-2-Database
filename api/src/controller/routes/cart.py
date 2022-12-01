@@ -14,14 +14,10 @@ ns = Namespace('api/cart', description='Cart API EP')
 
 cartModel = ns.model('Cart register model', {
     'idxCart': fields.Integer(readonly=True, description=''),
-    'CartID': fields.String(required=True, description=''),
     'CartProductName': fields.String(required=True, description=''),
-    'CartProductCategory': fields.String(required=True, description=''),
     'CartProductID': fields.String(required=True, description=''),
-    'CartProductRemaining': fields.Integer(required=True, description=''),
     'CartProductCost': fields.Integer(required=True, description=''),
-    'CartProductInformation': fields.String(required=True, description=''),
-    'ProducerIdentifyNumber': fields.String(required=True, description=''),
+    'CartProductImage': fields.String(required=True, description=''),
     'ConsumerIdentifyNumber': fields.String(required=True, description=''),
     'CartBuyChecked': fields.Boolean(required=True, description=''),
     "UpdateTimestamp": fields.DateTime(required=True, description='')
@@ -67,13 +63,10 @@ class daoCartObject(object):
         try:
             g.dbSession.add(cartDBModel(
                 CartProductName=payload["CartProductName"],
-                CartID=payload["CartID"],
-                CartProductCategory=payload["CartProductCategory"],
                 CartProductID=payload["CartProductID"],
-                CartProductRemaining=payload["CartProductRemaining"],
                 CartProductCost=payload["CartProductCost"],
-                CartProductInformation=payload["CartProductInformation"],
-                ProducerIdentifyNumber=payload["ProducerIdentifyNumber"],
+                CartProductImage=payload["CartProductImage"],
+                ProducerIdentifyNumber='635265ac-6cb9-11ed-bef8-acde48001122',
                 ConsumerIdentifyNumber=payload["ConsumerIdentifyNumber"],
                 CartBuyChecked=payload["CartBuyChecked"],
                 UpdateTimestamp=payload["UpdateTimestamp"]
@@ -92,7 +85,8 @@ class daoCartObject(object):
             return responseObject().deleteMethodResponse(state=False)
 
         try:
-            g.dbSession.query(cartDBModel).filter(cartDBModel.CartID == payload).delete()
+            g.dbSession.query(cartDBModel).filter(cartDBModel.CartProductID == payload["CartProductID"],
+                                                  cartDBModel.ConsumerIdentifyNumber == payload["ConsumerIdentifyNumber"]).delete()
             g.dbSession.commit()
             return responseObject().deleteMethodResponse(state=True)
         except:
@@ -105,7 +99,7 @@ class daoCartObject(object):
             return responseObject().patchMethodResponse(state=False)
 
         try:
-            g.dbSession.query(cartDBModel).filter(cartDBModel.CartID == payload).update(
+            g.dbSession.query(cartDBModel).filter(cartDBModel.ConsumerIdentifyNumber == payload["ConsumerIdentifyNumber"]).update(
                 {'CartBuyChecked': 1}
             )
             g.dbSession.commit()
@@ -118,7 +112,18 @@ class daoCartObject(object):
         if self.CartCount() == 0:
             ns.abort(404, f"Not Found")
 
-        self.selectData = g.dbSession.query(cartDBModel).filter(cartDBModel.ConsumerIdentifyNumber == payload, cartModel.CartBuyChecked == 0).all()
+        self.selectData = g.dbSession.query(cartDBModel).filter(cartDBModel.ConsumerIdentifyNumber == payload["ConsumerIdentifyNumber"], cartDBModel.CartBuyChecked == 0).all()
+
+        if not self.selectData:
+            ns.abort(404, f"Not Found")
+
+        return self.selectData
+
+    def CartBuyProductsList(self, payload):
+        if self.CartCount() == 0:
+            ns.abort(404, f"Not Found")
+
+        self.selectData = g.dbSession.query(cartDBModel).filter(cartDBModel.ConsumerIdentifyNumber == payload["ConsumerIdentifyNumber"], cartDBModel.CartBuyChecked == 1).all()
 
         if not self.selectData:
             ns.abort(404, f"Not Found")
@@ -141,40 +146,54 @@ class epRegisterRequestHandler(Resource):
         return handler.CartRegister(ns.payload)
 
 
-@ns.route('/remove/<string:cartID>')
+@ns.route('/remove/<string:ConsumerIdentifyNumber>/<string:CartProductID>')
 @ns.response(404, 'Not Found')
-@ns.param('cartID', 'Cart Identity Number')
+@ns.param('ConsumerIdentifyNumber', 'Consumer Identity Number')
+@ns.param('CartProductID', 'Cart Identity Number')
 class epRemoveRequestHandler(Resource):
     """Request handler for Cart Removed"""
 
     @ns.doc('Remove Cart')
     @ns.marshal_with(Response)
-    def delete(self, cartID):
+    def delete(self, ConsumerIdentifyNumber, CartProductID):
         """Fetch a given resource"""
-        return handler.CartRemove(cartID)
+        return handler.CartRemove({"ConsumerIdentifyNumber": ConsumerIdentifyNumber, "CartProductID": CartProductID})
 
 
-@ns.route('/products/<string:cartID>')
+@ns.route('/products/<string:ConsumerIdentifyNumber>')
 @ns.response(404, 'Not Found')
-@ns.param('cartID', 'Cart Identity Number')
+@ns.param('ConsumerIdentifyNumber', 'Consumer Identity Number')
 class epProductsRequestHandler(Resource):
     """Request handler for Cart List"""
 
     @ns.doc('Get Cart')
     @ns.marshal_list_with(cartModel)
-    def get(self, cartID):
+    def get(self, ConsumerIdentifyNumber):
         """Fetch a given resource"""
-        return handler.CartProductsList(cartID)
+        return handler.CartProductsList({"ConsumerIdentifyNumber": ConsumerIdentifyNumber})
 
 
-@ns.route('/buy/<string:cartID>')
+@ns.route('/products/buy/<string:ConsumerIdentifyNumber>')
 @ns.response(404, 'Not Found')
-@ns.param('cartID', 'Cart Identity Number')
+@ns.param('ConsumerIdentifyNumber', 'Consumer Identity Number')
+class epProductsBuyRequestHandler(Resource):
+    """Request handler for buy Cart List"""
+
+    @ns.doc('Get Buy Cart')
+    @ns.marshal_list_with(cartModel)
+    def get(self, ConsumerIdentifyNumber):
+        """Fetch a given resource"""
+        return handler.CartBuyProductsList({"ConsumerIdentifyNumber": ConsumerIdentifyNumber})
+
+
+@ns.route('/buy/<string:ConsumerIdentifyNumber>')
+@ns.response(404, 'Not Found')
+@ns.param('ConsumerIdentifyNumber', 'Consumer Identity Number')
 class epBuyRequestHandler(Resource):
     """Request handler for Cart Bought"""
 
     @ns.doc('Buy Product')
     @ns.marshal_with(Response)
-    def post(self, cartID):
+    def patch(self, ConsumerIdentifyNumber):
         """Fetch a given resource"""
-        return handler.CartBuy(cartID)
+        return handler.CartBuy({"ConsumerIdentifyNumber": ConsumerIdentifyNumber})

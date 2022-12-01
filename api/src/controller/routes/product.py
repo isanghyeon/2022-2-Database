@@ -57,8 +57,17 @@ class daoProductObject(object):
     def productList(self):
         if self.ProductCount() == 0:
             ns.abort(404, f"Not Found")
-        print(self.selectData)
         self.selectData = g.dbSession.query(productDBModel).all()
+
+        if not self.selectData:
+            ns.abort(404, f"Not Found")
+
+        return self.selectData
+
+    def productOneList(self, payload):
+        if self.ProductCount() == 0:
+            ns.abort(404, f"Not Found")
+        self.selectData = g.dbSession.query(productDBModel).filter(productDBModel.ProductID == payload).first()
 
         if not self.selectData:
             ns.abort(404, f"Not Found")
@@ -215,6 +224,19 @@ class epModifyRequestHandler(Resource):
     def delete(self, productID):
         """Fetch a given resource"""
         return handler.delete(productID)
+
+
+@ns.route('/<string:productID>')
+@ns.response(404, 'Not Found')
+@ns.param('productID', 'productID search in product information')
+class epOneGetequestHandler(Resource):
+    """Request handler for One Product Get"""
+
+    @ns.doc('Get one Product')
+    @ns.marshal_list_with(GetCartModel)
+    def get(self, productID):
+        """Fetch a given resource"""
+        return handler.productOneList(productID)
 
 
 @ns.route('/modify')

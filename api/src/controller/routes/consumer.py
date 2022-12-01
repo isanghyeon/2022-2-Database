@@ -8,6 +8,7 @@ import sys, os, json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from controller.responseObj import responseObject
+from controller.customizeField import StringToJSON
 from models.shop.consumer import consumer as consumerDBModel
 
 ns = Namespace('api/consumer', description='Consumer API EP')
@@ -23,6 +24,20 @@ signupModel = ns.model('Consumer register model', {
     'IdentifyNumber': fields.String(required=True, description=''),
     'LastLogin': fields.DateTime(required=True, description=''),
     'CreateTime': fields.DateTime(required=True, description='')
+})
+
+consumerModel = ns.model('Consumer data  model', {
+    'idxConsumer': fields.Integer(readonly=True, description=''),
+    'ConsumerEmail': fields.String(required=True, description=''),
+    'ConsumerName': fields.String(required=True, description=''),
+    'Address': fields.String(required=True, description=''),
+    'PhoneNumber': fields.String(required=True, description=''),
+    'IdentifyNumber': fields.String(required=True, description='')
+})
+
+consumerBuyModel = ns.model('Consumer buy data  model', {
+    'idxConsumer': fields.Integer(readonly=True, description=''),
+    'ConsumerEmail': fields.String(required=True, description='')
 })
 
 signinModel = ns.model('Consumer login model', {
@@ -50,6 +65,17 @@ class daoConsumerObject(object):
     def consumerCount(self):
         self.counter = g.dbSession.query(consumerDBModel).count()
         return self.counter
+
+    def getConsumerList(self, payload):
+        if self.consumerCount() == 0:
+            ns.abort(404, f"Not Found")
+        self.selectData = g.dbSession.query(consumerDBModel.idxConsumer, consumerDBModel.ConsumerEmail, consumerDBModel.ConsumerName, consumerDBModel.Address,
+                                            consumerDBModel.PhoneNumber, consumerDBModel.IdentifyNumber).filter(consumerDBModel.ConsumerEmail == payload).first()
+
+        if not self.selectData:
+            ns.abort(404, f"Not Found")
+
+        return self.selectData
 
     def signIn(self, payload):
         if self.consumerCount() == 0 or type(payload) is not dict or not len(payload["ConsumerEmail"]) or not len(payload["ConsumerPWD"]):
@@ -90,22 +116,40 @@ class daoConsumerObject(object):
         return responseObject().postMethodResponse(state=False)
 
     # def modify(self, payload):
-    #     if type(payload) is not dict or not len(payload["data"]):
-    #         return responseObject().return_post_http_status_message()
+    #     if type(payload) is not dict:
+    #         return responseObject().patchMethodResponse(state=False)
     #
     #     try:
-    #         g.dbSession.query(consumerDBModel).filter(jobModel.id == int(self.updateData[ListofData]["id"])).update(
-    #             {'done': int(self.updateData[ListofData]["done"])}
+    #         self.selectData = g.dbSession.query(consumerDBModel.BuyProductID).filter(consumerDBModel.ConsumerEmail == payload["ConsumerEmail"]).first()
+    #         print("======= =====")
+    #         print(self.selectData, type(self.selectData))
+    #         print("======= =====")
+    #         print(payload["BuyProductID"])
+    #         g.dbSession.query(consumerDBModel).filter(consumerDBModel.ConsumerEmail == payload["ConsumerEmail"]).update(
+    #             {'BuyProductID': json.dumps(payload["BuyProductID"])}
     #         )
     #         g.dbSession.commit()
-    #         return Return_object().return_patch_http_status_message(Type=True)
+    #         return responseObject().patchMethodResponse(state=True)
     #     except:
     #         g.dbSession.rollback()
     #
-    #     return Return_object().return_patch_http_status_message(Type=False)
+    #     return responseObject().patchMethodResponse(state=False)
 
 
 handler = daoConsumerObject()
+
+
+@ns.route('/consumer/<string:ConsumerEmail>')
+@ns.response(404, 'Not Found')
+@ns.param('ConsumerEmail', 'Consumer Email')
+class epOneGetRequestHandler(Resource):
+    """Request handler for Consumer Data"""
+
+    @ns.doc('Get Consumer Data')
+    @ns.marshal_with(consumerModel)
+    def get(self, ConsumerEmail):
+        """Fetch a given resource"""
+        return handler.getConsumerList(ConsumerEmail)
 
 
 @ns.route('/signin')
@@ -131,13 +175,14 @@ class epSignupRequestHandler(Resource):
         """Fetch a given resource"""
         return handler.signUp(ns.payload)
 
+
 # @ns.route('/modify')
 # class epModifyRequestHandler(Resource):
 #     """Request handler for modify"""
 #
 #     @ns.doc('Modify Consumer')
-#     @ns.expect()
-#     @ns.marshal_with()
+#     @ns.expect(consumerBuyModel)
+#     @ns.marshal_with(Response)
 #     def patch(self):
 #         """Fetch a given resource"""
-#         return handler.update(ns.payload)
+#         return handler.modify(ns.payload)
