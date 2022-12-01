@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `db_shop`.`producer`
   COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `producer`
-VALUES (1, 'admin1@sch.ackr',
+VALUES (1, 'admin1@sch.ac.kr',
         'YzQ5ODk3N2M2NTVkNTQ5YjlkZDdiOWY5NWE2ZGI4ZjQxMTNkNWQxN2ZlOTRhODI4MzJkZjNiZmFkYmViNDg2OQ==', '관리자\n', '.',
         '010-1234-1234', 1, '635265ac-6cb9-11ed-bef8-acde48001122', '2022-11-25 21:05:05', '2022-11-25 21:05:10');
 
@@ -163,7 +163,7 @@ VALUES (1, '워셔블 하찌 니트', '상의', '1', '635265ac-6cb9-11ed-bef8-ac
         'product-53.jpg'),
        (54, '스몰 트위치로고 코튼 커브 볼캡', '모자', '54', '635265ac-6cb9-11ed-bef8-acde48001122', 22, 31500, '이것은 의류입니다.',
         'product-54.jpg'),
-       (55, 'Signature Logo ball cap', '모자', '55', '635265ac-6cb9-11ed-bef8-acde48001122', 2, 72400, '이것은 의류입니다.',
+       (55, 'Signature Logo ball cap', '모자', '55', '635265ac-6cb9-11ed-bef8-acde480스01122', 2, 72400, '이것은 의류입니다.',
         'product-55.jpg'),
        (56, 'N-COVER 볼캡 NY', '모자', '56', '635265ac-6cb9-11ed-bef8-acde48001122', 5, 29300, '이것은 의류입니다.',
         'product-56.jpg'),
@@ -174,25 +174,25 @@ VALUES (1, '워셔블 하찌 니트', '상의', '1', '635265ac-6cb9-11ed-bef8-ac
         'product-59.jpg'),
        (60, 'N-COVER 언스트럭쳐 볼캡 LA', '모자', '60', '635265ac-6cb9-11ed-bef8-acde48001122', 46, 37100, '이것은 의류입니다.',
         'product-60.jpg'),
-       (61, '1507 모노 트라우져 하프 삭스', '양말/레그웨어', '61', '635265ac-6cb9-11ed-bef8-acde48001122', 46, 23200, '이것은 의류입니다.',
+       (61, '1507 모노 트라우져 하프 삭스', '삭스', '61', '635265ac-6cb9-11ed-bef8-acde48001122', 46, 23200, '이것은 의류입니다.',
         'product-61.jpg'),
-       (62, '라이트웨이트 크루 삭스', '양말/레그웨어', '62', '635265ac-6cb9-11ed-bef8-acde48001122', 11, 36700, '이것은 의류입니다.',
+       (62, '라이트웨이트 크루 삭스', '삭스', '62', '635265ac-6cb9-11ed-bef8-acde48001122', 11, 36700, '이것은 의류입니다.',
         'product-62.jpg'),
-       (63, '1507 모노 트라우져 삭스', '양말/레그웨어', '63', '635265ac-6cb9-11ed-bef8-acde48001122', 33, 20000, '이것은 의류입니다.',
+       (63, '1507 모노 트라우져 삭스', '삭스', '63', '635265ac-6cb9-11ed-bef8-acde48001122', 33, 20000, '이것은 의류입니다.',
         'product-63.jpg'),
-       (64, '1507 유니섹스 컬러 트라우져 삭스', '양말/레그웨어', '64', '635265ac-6cb9-11ed-bef8-acde48001122', 24, 52800, '이것은 의류입니다.',
+       (64, '1507 유니섹스 컬러 트라우져 삭스', '삭스', '64', '635265ac-6cb9-11ed-bef8-acde48001122', 24, 52800, '이것은 의류입니다.',
         'product-64.jpg'),
-       (65, '1507 베이직 트라우져 립삭스', '양말/레그웨어', '65', '635265ac-6cb9-11ed-bef8-acde48001122', 46, 57300, '이것은 의류입니다.',
+       (65, '1507 베이직 트라우져 립삭스', '삭스', '65', '635265ac-6cb9-11ed-bef8-acde48001122', 46, 57300, '이것은 의류입니다.',
         'product-65.jpg'),
-       (66, '1290 남녀공용 골지 양말 5팩', '양말/레그웨어', '66', '635265ac-6cb9-11ed-bef8-acde48001122', 35, 61500, '이것은 의류입니다.',
+       (66, '1290 남녀공용 골지 양말 5팩', '삭스', '66', '635265ac-6cb9-11ed-bef8-acde48001122', 35, 61500, '이것은 의류입니다.',
         'product-66.jpg'),
-       (67, '크루 삭스 7팩', '양말/레그웨어', '67', '635265ac-6cb9-11ed-bef8-acde48001122', 42, 73200, '이것은 의류입니다.',
+       (67, '크루 삭스 7팩', '삭스', '67', '635265ac-6cb9-11ed-bef8-acde48001122', 42, 73200, '이것은 의류입니다.',
         'product-67.jpg'),
-       (68, '[6PACK] 모노 애슬레틱 삭스', '양말/레그웨어', '68', '635265ac-6cb9-11ed-bef8-acde48001122', 4, 64900, '이것은 의류입니다.',
+       (68, '[6PACK] 모노 애슬레틱 삭스', '삭스', '68', '635265ac-6cb9-11ed-bef8-acde48001122', 4, 64900, '이것은 의류입니다.',
         'product-68.jpg'),
-       (69, '페이크 삭스 7팩', '양말/레그웨어', '69', '635265ac-6cb9-11ed-bef8-acde48001122', 36, 76300, '이것은 의류입니다.',
+       (69, '페이크 삭스 7팩', '삭스', '69', '635265ac-6cb9-11ed-bef8-acde48001122', 36, 76300, '이것은 의류입니다.',
         'product-69.jpg'),
-       (70, '스우시 양말 3팩', '양말/레그웨어', '70', '635265ac-6cb9-11ed-bef8-acde48001122', 30, 39600, '이것은 의류입니다.',
+       (70, '스우시 양말 3팩', '삭스', '70', '635265ac-6cb9-11ed-bef8-acde48001122', 30, 39600, '이것은 의류입니다.',
         'product-70.jpg'),
        (71, '사피아노 신세틱 레더 벨트', '액세서리', '71', '635265ac-6cb9-11ed-bef8-acde48001122', 37, 73700, '이것은 의류입니다.',
         'product-71.jpg'),
@@ -258,19 +258,15 @@ VALUES (1, '워셔블 하찌 니트', '상의', '1', '635265ac-6cb9-11ed-bef8-ac
 CREATE TABLE IF NOT EXISTS `db_shop`.`cart`
 (
     `idxCart`                int(11)          NOT NULL AUTO_INCREMENT,
-    `CartID`                 varchar(100)     NOT NULL,
     `CartProductName`        varchar(45)      NOT NULL,
-    `CartProductCategory`    varchar(45)      NOT NULL,
     `CartProductID`          varchar(45)      NOT NULL,
-    `CartProductRemaining`   int(10) unsigned NOT NULL DEFAULT 0,
     `CartProductCost`        int(10) unsigned NOT NULL DEFAULT 0,
-    `CartProductInformation` text             NOT NULL,
-    `ProducerIdentifyNumber` varchar(100)     NOT NULL,
+    `CartProductImage`       varchar(100)     NOT NULL,
+    `ProducerIdentifyNumber` varchar(100)     NOT NULL DEFAULT '635265ac-6cb9-11ed-bef8-acde48001122',
     `ConsumerIdentifyNumber` varchar(100)     NOT NULL,
     `CartBuyChecked`         tinyint(1)                DEFAULT 0,
     `UpdateTimestamp`        datetime                  DEFAULT current_timestamp(),
-    PRIMARY KEY (`idxCart`),
-    UNIQUE KEY `CartID_UNIQUE` (`CartID`)
+    PRIMARY KEY (`idxCart`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
